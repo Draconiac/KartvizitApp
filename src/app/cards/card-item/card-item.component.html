@@ -1,0 +1,36 @@
+<mat-card class="card-item">
+    <mat-card-header (click)="openUpdateCardModel()">
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{cardItem.name || '-' }}  </mat-card-title>
+    <mat-card-subtitle>{{cardItem.title}}</mat-card-subtitle>
+    </mat-card-header>            
+    <mat-card-content>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{cardItem.phone}}</li>
+        <li class="list-group-item">
+            <span *ngIf="cardItem.email">{{ cardItem.email }}</span>
+            <small class="text-warning no-content" *ngIf="!cardItem.email">E-posta girilmemiş.</small>
+        </li>
+        <li class="list-group-item">
+            <span *ngIf="cardItem.address">{{ cardItem.address }}</span>
+            <small class="text-warning no-content" *ngIf="!cardItem.address">Adres girilmemiş.</small>
+        </li>                    
+    </ul>
+    </mat-card-content>
+    <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+    </mat-card-actions>        
+</mat-card> 
+
+<!--
+        <li class="list-group-item" *ngIf="cardItem.email; else noEmail">{{cardItem.email}}</li>
+        <ng-template  #noEmail>
+            <small class="text-warning">E-posta girilmemiş.</small>
+        </ng-template>
+        <li class="list-group-item" *ngIf="cardItem.address; else noAddress">{{cardItem.address}}</li>     
+        <ng-template  #noAddress>
+            <small class="text-warning">Adres girilmemiş.</small>
+        </ng-template> 
+
+-->
