@@ -4,13 +4,14 @@
             <h1 class="page-title">Kartvizitler</h1>
             <p class="page-description">Bu ekranda kartvizitleri görebilirsiniz</p>
         </div>
-        <button mat-flat-button color="primary" (click)="openAddCardModel()">Yeni Kartvizit</button>
+        <app-card-search></app-card-search>
+        <button mat-flat-button color="primary" style="margin-left: 16px;"   (click)="openAddCardModel()">Yeni Kartvizit</button>
     </div>
     
     <hr>
     <div class="cards">
         <div class="row">
-            <div class="col-12 col-md-4 col-lg-3" *ngFor="let card of cardService.cards">
+            <div class="col-12 col-md-4 col-lg-3" *ngFor="let card of cardService.filteredCards">
                 <app-card-item [cardItem]="card" ></app-card-item>          
             </div>
         </div>    

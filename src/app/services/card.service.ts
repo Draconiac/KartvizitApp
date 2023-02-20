@@ -9,6 +9,7 @@ import { Card } from '../models/card';
 export class CardService {
 
   cards!: Card[]
+  filteredCards!: Card[]
 
   //apiUrl: string = 'http://demo.limantech.com/cards/public/api'
 
@@ -25,7 +26,7 @@ export class CardService {
   getCards(){
     return this.http.get<Card[]>(this.apiUrl + '/cards')
     .subscribe((res:Card[]) => {
-      this.cards = res
+      this.cards = this.filteredCards = res
     })
   }
 
